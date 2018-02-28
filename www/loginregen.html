@@ -1,0 +1,225 @@
+
+<link href="lib/ionic/css/ionic.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+
+<script src="lib/ionic/js/ionic.bundle.js"></script>
+
+<script src="lib/ngCordova/dist/ng-cordova.js"></script> 
+<script src="lib/angular-websocket/dist/angular-websocket.js"></script>
+<script src="lib/ionic-service-core/ionic-core.js"></script>
+<script src="lib/ionic-service-push/ionic-push.js"></script>
+
+<script src="cordova.js"></script>
+<script src="js/appEn.js"></script>
+<script src="js/controllersEn.js"></script>
+<script src="js/services.js"></script>
+<script src="js/PushNotification.js"></script>
+<script type="text/javascript">
+
+  document.addEventListener("deviceready", onDeviceReady, true);
+    
+  function onDeviceReady() {
+    pushNotification = window.plugins.pushNotification;
+
+    if(device.platform == 'android' || device.platform == 'Android'){  
+      pushNotification.register(successHandler,errorHandler,{senderID: "632143622880",ecb:"onNotificationGCM"});
+    }else{
+      pushNotification.register(tokenHandler,errorHandler,{"badge":"true","sound":"true","alert":"true","ecb":"onNotificationAPN"});
+    }
+  }
+
+  function onNotificationGCM(e) {
+    switch( e.event ){
+      case 'registered':
+          if(e.regid.length > 0){
+              document.getElementById('gcm_key').value = e.regid;
+          }
+      break;
+
+      case 'message':
+          if(e.foreground){
+              var my_media = new Media("/android_asset/www/"+e.soundname);
+              my_media.play();
+          }else{  
+              if(e.coldstart){
+
+              }else{
+                
+              }
+          }
+
+      break;
+
+      case 'error':
+          
+      break;
+
+      default:
+          
+      break;
+    }
+  }
+
+  function successHandler (result) {
+
+  }
+
+  function errorHandler (error) {
+
+  }    
+
+  // iOS
+  function onNotificationAPN (event) {
+    console.log(event);
+    if(event.alert){
+      navigator.notification.alert(event.alert);
+      //alert(event.alert);
+    }
+
+    if(event.sound){
+      var snd = new Media(event.sound);
+      snd.play();
+    }
+    alert("event.badge : " + event.badge);
+    if(event.badge){
+      pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, event.badge);
+    }
+
+  }
+
+
+</script>
+
+<meta charset="utf-8">
+
+<ion-view view-title="Register" ng-app="starter">
+
+  <ion-content ng-controller="LoginCtrl">
+
+    <div id="profile-bg"></div>
+      <div id="content">
+        <div id="profile-info">
+          <img id="profile-image" src="{{imgadd}}">
+            <p></p>
+            <button class="button icon ion-camera" ng-click="takePicture()"></button>
+            <button class="button icon ion-images" ng-click="getPicture()"></button>
+        </div>
+    </div>
+
+
+    <div class="registration">
+
+    <input id="idchk" type="hidden"/>
+    <input id="passchk" type="hidden"/>
+    <input id="rememberId" type="hidden"/>
+    <input id="password" type="hidden"/>  
+    <input id="gcm_key" type="hidden"/>
+
+      <ul>
+        <li>
+          <label>
+            <input id="id" name="id" type="text" ng-model="userReg.id" placeholder="ID (maximum 15 characters)" required></input>
+          </label>
+        </li>
+
+        <li>
+          <label>
+            <input id="name2" name="name2" type="text" ng-model="userReg.name2" placeholder="Name" required></input>
+          </label>
+        </li>
+
+        <li>
+          <label>
+            <input id="nickname" name="nickname" type="text" ng-model="userReg.nickname" placeholder="Nickname" required></input>
+          </label>
+        </li> 
+        
+        <li>
+          <label>
+            <input id="password1" name="password1" type="password" ng-model="userReg.password1" placeholder="Password" required></input>
+          </label>
+        </li>    
+        
+        <li>
+          <label>
+            <input id="password2" name="password2" type="password" ng-model="userReg.password2" placeholder="Confirm password" required></input>
+          </label>
+        </li>
+
+        <li>
+          <label>
+            <input id="email" name="email" type="email" ng-model="userReg.email" placeholder="Email" required></input>
+          </label>
+        </li>
+
+        <li class="select">
+          <select ng-model="userReg.country" name="country" style="width:100%; height:40px; border-top:0; background: #fff; border-right:0; border-left:0; color: #A6A6A6;">
+            <option value="">Select country</option>
+            <option ng-repeat="nationLists in nationList" value="{{nationLists.code}}">{{nationLists.code_name}}</option>
+          </select>
+        </li>
+
+        <li>
+          <label>
+            <input id="affiliation" name="affiliation" type="text" ng-model="userReg.affiliation" placeholder="Belong" required></input>
+          </label>
+        </li>
+
+      </ul>
+
+      <ion-item>
+        <div class="registration_btn">
+          <a><button style="color:#fff;" type="submit" ng-click="userReg(userReg)">Save</button></a>
+          <a href="javascript:history.go(-1)"><button type="text" class="button button-royal">Cancel</button></a>
+        </div>
+      </ion-item>
+
+    </div>
+
+<!--     <ion-item>
+      <label>
+        <input id="id" name="id" type="text" ng-model="userReg.id" placeholder="아이디(15자리 이하)" required></input>
+      </label>
+    </ion-item>
+
+    <ion-item>
+      <label>
+        <input id="name2" name="name2" type="text" ng-model="userReg.name2" placeholder="이름" required></input>
+      </label>
+    </ion-item>
+
+    <ion-item>
+      <label>
+        <input id="nickname" name="nickname" type="text" ng-model="userReg.nickname" placeholder="닉네임" required></input>
+      </label>
+    </ion-item>
+
+    <ion-item>
+      <label>
+        <input id="password1" name="password1" type="password" ng-model="userReg.password1" placeholder="비밀번호" required></input>
+      </label>
+    </ion-item>
+
+    <ion-item>
+      <label>
+        <input id="password2" name="password2" type="password" ng-model="userReg.password2" placeholder="비밀번호확인" required></input>
+      </label>
+    </ion-item>
+
+    <ion-item>
+      <label>
+        <input id="email" name="email" type="email" ng-model="userReg.email" placeholder="이메일" required></input>
+      </label>
+    </ion-item>
+
+    <ion-item>
+      <a><button style="color:#fff;" class="button button-energized" ng-click="userReg(userReg)">저장</button></a>
+      <a href="javascript:history.go(-1)"><button class="button button-royal">취소</button></a>
+    </ion-item> -->
+
+
+
+
+  </ion-content>
+</ion-view>
+

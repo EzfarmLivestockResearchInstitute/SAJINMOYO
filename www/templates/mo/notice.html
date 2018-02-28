@@ -1,0 +1,62 @@
+<ion-view ng-app="notice" view-title="Sajinmoyo">
+
+	<ion-content class="has-header">
+	<!-- <ion-content ng-controller="noticelistCtrl" class="has-header"> ng-controller를 넣으면 두번 돌아 -->
+		
+   		<div class="ionic" align="right">
+	  		<ion-item ng-if="gflaguser == 0">
+	 			<p> 
+	 				<!-- <a href="#/app/noticereg"><button class="button icon-center ion-compose button-calm" style="color:#fff;">등록</button></a> -->
+	 				
+	 				<div class="notice_reg">
+	 					<div class="btn">
+	 						<button ng-click="regnotice()">
+	 							<i class="icon ion-compose placeholder-icon" style="color:#fff;"> Бүртгүүлэх</i>
+	 						</button>
+	 					</div>
+	 				</div>
+	 				
+				</p>
+				<!-- <button type="submit" ng-click="regqna()"><i class="icon ion-compose placeholder-icon" style="color:#fff;"> 등록</i></button></div>		 -->		
+			</ion-item>
+		</div>
+
+	 	<ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">
+	    </ion-refresher>
+
+        <ion-list>
+        	<div ng-repeat="noticeDetail in noticeList">
+        		<ion-item ng-click="toggleGroup(noticeDetail)" ng-class="{active: isGroupShown(noticeDetail)}" class="item-stable item-icon-right">
+
+        		<i class="ion" ng-class="isGroupShown(noticeDetail) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
+		       	&nbsp;<b>{{noticeDetail.title}}</b>
+			       	<p>{{noticeDetail.posteddate}}</p>
+
+			       	<!--  관리자 권한 == 0 -->
+			        <div ng-if="gflaguser == 0">
+			        	<i class="icon ion-chevron-right icon-accessory"></i>
+				        <ion-option-button class="button-positive ion-settings" ng-click="update(noticeDetail)">
+				        </ion-option-button>	
+				        
+				        <ion-option-button class="button-assertive ion-trash-a" ng-click="remove(noticeDetail)">
+				        </ion-option-button>			       	
+			        </div>
+
+			    </ion-item>   	
+			    
+			    <ion-item class="item-accordion2 item item-text-wrap" ng-show="isGroupShown(noticeDetail)">
+			    	<div class="item-expand active">
+			    		{{noticeDetail.contents}}	
+			    	</div>
+			    	<!-- <p>{{noticeDetail.contents}}</p>    -->
+			    </ion-item>
+        	</div>
+        </ion-list>
+
+	    <ion-infinite-scroll ng-if="hasMoreData" on-infinite="loadMore()" distance="30%">
+	    	<ion-infinite-scroll-content loadingSpinner="bubbles" lodingText="Loading more data...">
+	    	</ion-infinite-scroll-content>
+	    </ion-infinite-scroll>
+
+	</ion-content>
+</ion-view>

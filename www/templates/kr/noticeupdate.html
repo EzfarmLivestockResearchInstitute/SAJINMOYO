@@ -1,0 +1,24 @@
+<ion-view view-title="공지사항 수정">
+  
+  <ion-content ng-controller="noticelistCtrl">
+   	<ion-item>
+  		<label >
+        <input id="pid" name="pid" type="hidden" ng-model="noticeView.pid"></input>
+  			<input id="title" name="title" type="text" ng-model="noticeView.title" placeholder="제목을 입력해주세요."></input>
+  		</label>
+  	</ion-item>
+
+  	<ion-item>
+      <label >
+        <textarea id="contents" name="contents" ng-model="noticeView.contents" rows="10" cols="30" placeholder="내용을 입력해주세요">{{noticeView.contents}}</textarea>
+      </label>
+    </ion-item>
+
+    <ion-item >
+      <div class="registration_btn">
+        <a><button class="button button-energized" type="submit" ng-click="noticeUpdate(noticeView)">수정</button></a>
+        <a href="#/app/notice"><button type="text" class="button button-royal">취소</button></a>
+      </div>
+    </ion-item> 
+
+  </ion-content>

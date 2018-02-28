@@ -1,0 +1,55 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-header bar-positive">
+    <h1 class="title">기본정보</h1>
+      <button class="button button-clear button-primary" ng-click="modal.hide()">닫기</button>
+  </ion-header-bar>
+
+  <ion-content>
+
+    <div id="profile-bg"></div>
+      <div id="content" style="margin-top: 80px; padding-top: 50px;">
+        <div id="profile-info">
+          <img id="profile-image" src="{{imguser}}">
+        </div>
+    </div>
+
+    <table class="set_table" summary="기본정보.">
+      <caption>기본정보</caption>
+      <colgroup>
+        <col width="50%"/>
+        <col width="50%"/>
+      </colgroup>
+      <thead>
+        <tr>
+          <th colspan="2">기본정보</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>아이디</td>
+          <td class="rt">{{infouserid}}</td>
+        </tr>
+        <tr>
+          <td>이름</td>
+          <td class="rt">{{infoname}}</td>
+        </tr>
+        <tr>
+          <td>별명</td>
+          <td class="rt">{{infonickname}}</td>
+        </tr>   
+        <tr>
+          <td>이메일</td>
+          <td class="rt">{{infoemail}}</td>
+        </tr>              
+      </tbody>
+    </table>
+
+  </ion-content>
+
+  <ion-footer-bar ng-click="modal.hide()">
+    <h2 class="title">
+      <i class="button button-full button-positive">닫기</i>
+    </h2>
+  </ion-footer-bar>
+  
+</ion-modal-view>

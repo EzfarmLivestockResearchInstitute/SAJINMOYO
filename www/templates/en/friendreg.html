@@ -1,0 +1,91 @@
+<ion-view view-title="Register friends">
+  <ion-content>
+
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRegRefresh()">
+    </ion-refresher>
+
+    
+    <div class="searchOie">
+      <div class="choice3" style="height:1px;">
+          <div class="set item-select item-stable" style="width:100%;">   
+              <select style="width:100%;" ng-model="fsearchValueList" ng-change="fsearchValueChange('list',fsearchValueList)">
+                <option value="0">ID</option>
+                <option value="1">Nickname</option>
+                <option value="2">Email</option>
+                <option value="3">Nation</option>
+                <option value="4">Belong</option>
+              </select>
+          </div>
+      </div>
+
+      <div class="scarch3">
+        <div data-ng-if="fsearchValueList != 3">
+          <input id="searchReg" name="searchReg" type="search" placeholder="Search">
+          <button type="button"><i class="icon ion-search placeholder-icon" ng-click="friendRegsearch()" style="color:#fff;"></i></button>
+        </div>
+
+        <div data-ng-if="fsearchValueList == 3">  
+          <select style="width:100%;" ng-model="searchNation" ng-change="fsearchNationChange(searchNation)">
+            <option ng-repeat="nationLists in nationList" value="{{nationLists.code}}">{{nationLists.code_name}}</option>
+          </select>       
+          <button type="button"><i class="icon ion-search placeholder-icon" ng-click="friendRegsearch()" style="color:#fff;"></i></button>
+        </div>
+      </div>
+
+    </div>
+
+<!--     <div class="scarch">
+  <input id="searchReg" name="searchReg" type="search" placeholder="Find friends"/>
+  <button type="button"><i class="icon ion-search placeholder-icon" ng-click="friendRegsearch()" style="color:#fff;"></i></button>
+</div>    
+ -->
+    <div class="choice">
+      <div class="btn">
+        <button type="submit" ng-click="regGroup()"><i class="icon ion-plus placeholder-icon" style="color:#fff;">Group</i></button>
+      </div>
+    </div>
+        
+    <p></p>
+
+    <div class="choice">
+      <div class="set item-select item-stable">   
+        <select style="width:100%;" ng-model="forder" ng-change="friendorder('reg',forder)">
+          <option value="0">Date of registration</option>
+          <option value="1">Nickname</option>
+          <option value="2">Nation</option>
+        </select>
+      </div>
+
+    </div>
+
+    <div class="table_list">
+      <ion-list>
+        <div ng-repeat="friendreg in friendReglist" class="item item-avatar">
+          <img ng-src="{{friendreg.attc_user_id}}"/>
+            <p><h2><b>Nickname : {{friendreg.nickname}}</b></h2></p>
+            <p><h4>ID : {{friendreg.user_id}}</h4></p>
+            <div ng-if="friendreg.expert == 0">
+            <p><h4>Friend category : {{friendreg.expert_nm_en}}</h4></p>
+            </div>
+            <p><h4>Date of registration : {{friendreg.inputdate}}</h4></p>
+            <p><h4>Email : {{friendreg.email}}</h4></p>
+
+            <div style="position: absolute; top:25px; right: 20px;">
+            <button ng-if="friendreg.expert === null" class="button button-balanced ion-plus-round" ng-click="friendRegExpert(friendreg.pid,friendreg.friend_sn,friendreg.expert,friendreg.user_id)"></button>
+            <button ng-if="friendreg.expert !== null" class="button button-calm ion-minus-round" ng-click="friendRegExpert(friendreg.pid,friendreg.friend_sn,friendreg.expert,friendreg.user_id)"></button>
+            </div>
+        </div>
+      </ion-list>
+      <div>
+        <button type="button" class="button button-block button-royal" ng-click="friendreglist2()">List</button>
+      </div>
+
+    </div>
+
+    <ion-infinite-scroll ng-if="hasMoreData" on-infinite="loadMore()" distance="30%">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" lodingText="Loading more data...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+  </ion-content>
+</ion-view>

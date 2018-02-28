@@ -1,0 +1,157 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-header bar-positive">
+    <h1 class="title">기본정보 수정</h1>
+      <button class="button button-clear button-primary" ng-click="modalupdate.hide()">닫기</button>
+  </ion-header-bar>
+
+  <ion-content>
+
+    <!-- <div id="profile-bg"></div>
+      <div id="content" style="margin-top: 80px; padding-top: 50px;">
+        <div id="profile-info">
+          <img id="profile-image" src="{{imguser}}">
+        </div>
+    </div> -->
+
+    <div id="profile-bg"></div>
+      <div id="content" style="margin-top: 80px; padding-top: 80px;">
+        <div id="profile-info">
+          <!-- <img id="profile-image" src="{{imguser === null ? img/me.png : imguser}}"> -->
+          <img id="profile-image" src="{{imguser}}">
+            <p></p>
+            <button class="button icon ion-camera" ng-click="takePicture()"></button>
+            <button class="button icon ion-images" ng-click="getPicture()"></button>
+        </div>
+    </div>
+
+
+    <table class="set_table" summary="기본정보 수정">
+      <caption>기본정보 수정</caption>
+      <colgroup>
+        <col width="50%"/>
+        <col width="50%"/>
+      </colgroup>
+      <thead>
+        <tr>
+          <th colspan="2">기본정보</th>
+        </tr>
+      </thead>
+      <tbody>		
+        <tr>
+          <td>아이디</td>
+          <!-- <td><input style="text-align: right;" type="text" class="rt" ng-model="infouserid"/></td> -->
+          <td class="rt">{{infouserid}}</td>
+        </tr>
+        <tr>
+          <td>이름</td>
+          <td class="rt">{{infoname}}</td>
+        </tr>
+        <tr>
+          <td>별명</td>
+          <td class="rt"><input id="nickname" style="text-align: right;" type="text" class="rt" ng-model="infonickname"/></td>
+          <!-- <td class="rt">{{infonickname}}</td> -->
+        </tr>   
+        <tr>
+          <td>이메일</td>
+          <td class="rt"><input id="email" style="text-align: right;" type="text" class="rt" ng-model="infoemail"/></td>
+          <!-- <td class="rt">{{infoemail}}</td> -->
+        </tr>         
+        <tr>
+          <td>비밀번호</td>
+          <td class="rt"><input id="pass1" style="text-align: right;" type="password" class="rt" ng-model="infopass"/></td>
+          <!-- <td class="rt">{{infopass}}</td> -->
+        </tr>    
+        <tr>
+          <td>비밀번호 확인</td>
+          <td class="rt"><input id="pass2" style="text-align: right;" type="password" class="rt" ng-model="infopass2"/></td>
+          <!-- <td class="rt"><input type="password" ng-model="infopass"></input></td> -->
+        </tr>                         
+      </tbody>
+    </table>
+
+  </ion-content>
+
+  <ion-footer-bar ng-click="usersave()">
+    <h2 class="title">
+      <i class="button button-full button-positive">저장</i>
+    </h2>
+  </ion-footer-bar>
+  
+</ion-modal-view>
+
+<!--     <ion-item>
+      <label>
+        <input id="id" name="id" type="text" ng-model="userReg.id" placeholder="아이디(15자리 이하)" required></input>
+      </label>
+    </ion-item>
+
+    <ion-item>
+      <label>
+        <input id="name2" name="name2" type="text" ng-model="userReg.name2" placeholder="이름" required></input>
+      </label>
+    </ion-item>
+
+    <ion-item>
+      <label>
+        <input id="nickname" name="nickname" type="text" ng-model="userReg.nickname" placeholder="닉네임" required></input>
+      </label>
+    </ion-item>
+
+    <ion-item>
+      <label>
+        <input id="password1" name="password1" type="password" ng-model="userReg.password1" placeholder="비밀번호" required></input>
+      </label>
+    </ion-item>
+
+    <ion-item>
+      <label>
+        <input id="password2" name="password2" type="password" ng-model="userReg.password2" placeholder="비밀번호확인" required></input>
+      </label>
+    </ion-item>
+
+    <ion-item>
+      <label>
+        <input id="email" name="email" type="email" ng-model="userReg.email" placeholder="이메일" required></input>
+      </label>
+    </ion-item>
+
+    <ion-item>
+      <a><button style="color:#fff;" class="button button-energized" ng-click="userReg(userReg)">저장</button></a>
+      <a href="javascript:history.go(-1)"><button class="button button-royal">취소</button></a>
+    </ion-item> -->
+
+
+
+
+  </ion-content>
+</ion-view>
+
+
+
+<!-- <div>
+	<label class="item item-input">
+    	<input id="username" name="username" type="text" placeholder="이름" ng-model="userdata.username"/>
+	</label>
+
+	<label class="item item-input">
+		<input id="nickname" name="nickname" type="text" placeholder="닉네임" ng-model="userdata.nickname"/>
+	</label>            
+
+	<label class="item item-input">
+		<input id="pass1" name="pass1" type="password" placeholder="비밀번호" ng-model="userdata.pass1"/>
+	</label>            
+
+	<label class="item item-input">
+		<input id="pass2" name="pass2" type="password" placeholder="비밀번호 확인" ng-model="userdata.pass1"/>
+	</label>            
+
+	<label class="item item-input">
+		<input id="email" name="email" type="email" placeholder="이메일" ng-model="userdata.email"/>
+	</label>            			
+</div> -->
+
+<!-- <div>
+	<label class="item item-input">아이디 : 
+  		<div id="id"></div>
+  	</label>
+</div> -->

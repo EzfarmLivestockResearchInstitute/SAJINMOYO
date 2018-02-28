@@ -1,0 +1,23 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-header bar-positive">
+    <h1 class="title">Найз сонгох</h1>
+      <button class="button button-clear button-primary" ng-click="modal_friend_update.hide()">Хаах</button>
+  </ion-header-bar>
+
+  <ion-content class="padding">
+<!--     <div>
+      <ion-checkbox ng-repeat="open_friend_detail in open_friend_list" ng-checked="{{open_friend_detail.select_pid}}"  ng-model="open_friend_detail.select_pid">{{open_friend_detail.select_pid}}별명 : {{open_friend_detail.nickname}} || 아이디 : {{open_friend_detail.user_id}}</ion-checkbox>
+    </div> -->
+
+      <ion-checkbox ng-repeat="open_friend_detail in open_friend_list" ng-checked="{{open_friend_detail.select_pid}}"  ng-model="open_friend_detail.select_pid">Хоч (өөр нэр) : {{open_friend_detail.nickname}} || Бүртгэлтэй нэр : {{open_friend_detail.user_id}}</ion-checkbox>
+
+
+  </ion-content>
+
+  <ion-footer-bar ng-click="open_friend_ok(open_friend_list)">
+    <h2 class="title">
+      <i class="button button-full button-positive">Хадгалах</i>
+    </h2>
+  </ion-footer-bar>
+  
+</ion-modal-view>

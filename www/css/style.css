@@ -1,0 +1,485 @@
+@charset "UTF-8";
+
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+
+/*.popup{ margin-left : 0px;width: 400px !important; height: 370px;}*/
+.swiper-container {width: 75%;height: 200px;}
+.swiper-slide {text-align: center;font-size: 18px;background: #fff;
+        /* Center slide text vertically */
+        display: -webkit-box;
+    display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+
+
+.item-input.custom input[type="search"]::-webkit-search-cancel-button {-webkit-appearance: none;}
+
+.wrapper
+  margin: 0 auto
+  padding: 40px
+  max-width: 800px
+
+.table
+  margin: 0 0 40px 0
+  width: 100%
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2)
+  display: table
+  @media screen and (max-width: 580px)
+    display: block
+
+
+
+
+
+
+
+#meds-refund-form .toggle-wrapper {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: -20px;
+
+}
+
+  .toggle-question {
+    font-size: $default-font-size -3;
+    float: left;
+    margin: 10px;
+  }
+
+    .toggle-text {
+    width: 10%;
+    color: $bright-yellow;
+
+  }
+
+    .meds-toggle {
+    margin: 10px;
+    width: 5%;
+    float: right;
+    border: none;
+    height: 50px;
+  }
+
+/* 메인-언어선택 */
+.main_background{ width:100%; position:relative}
+.main_btn{width:100%;position: absolute;left:0;top:65%; z-index:10;}
+.main_btn ul li{ text-align:center; width:100%; line-height:10px; margin-bottom:10px;}
+.main_btn ul li.ko input[type="button"], input[type="submit"] { width:95%; height:40px; line-height:40px; background:#0201ff; color:#FFF; border-radius:7px; padding:0 5px; cursor:pointer;  border:0}
+.main_btn ul li.mo input[type="button"], input[type="submit"] { width:95%; height:40px; line-height:40px; background:#c42731; color:#FFF; border-radius:7px; padding:0 5px; cursor:pointer;  border:0}
+.main_btn ul li.en input[type="button"], input[type="submit"] { width:95%; height:40px; line-height:40px; background:#0c0ba7; color:#FFF; border-radius:7px; padding:0 5px; cursor:pointer;  border:0}
+.main_btn ul li.fr input[type="button"], input[type="submit"] { width:95%; height:40px; line-height:40px; background:#CC3D3D; color:#FFF; border-radius:7px; padding:0 5px; cursor:pointer;  border:0}
+
+/* 로그인 */
+.log_background{ width:100%; position:relative}
+.form_flied{ position:absolute;left:0;top:38%; width:100%; z-index:10}
+.form_flied ul li{ width:95%; margin:0 auto;}
+.form_flied ul li input[type="text"] { width:100%; border-bottom:1px solid #FFF; height:50px;line-height:50px; background:none; color:#FFF}
+.form_flied ul li input[type="password"] { width:100%; border-bottom:1px solid #FFF; height:50px;line-height:50px;  background:none; color:#FFF}
+.logcheck{float:right; width:45%; position:relative; margin:1% 3% 2% 0 ;}
+.logcheck ul li{color:#FFF;}
+.logcheck ul li span{position:absolute; top:24% ;left:30%; }
+.log_btn{width:100%;}
+.log_btn ul li{text-align:center; width:100%; margin-bottom:20px;}
+.log_btn ul li.login button[type="submit"]{ width:95%; height:50px; line-height:50px; background:#0201ff; color:#FFF; border-radius:7px; padding:0 5px; cursor:pointer;  border:0; margin:0 auto}
+.log_btn ul li.n_member button[type="button"]{ width:95%; height:50px; line-height:50px; background:#c42731; color:#FFF; border-radius:7px; padding:0 5px; cursor:pointer;  border:0; margin:0 auto}
+.log_find{ width:100%; position:relative; }
+.log_find ul li { color:#FFF; line-height:36px;}
+.log_find ul li a{ color:#FFF; line-height:36px; text-decoration: none;}
+
+
+/* 아이디/패스워드 찾기 */
+.pop_box{ width:95%; margin:0 auto; background-color:#FFF}
+.pop_box h2{ width:100%; height:100px; line-height:100px; color:#FFF; background-color:#6ac3c0; text-align:left; padding-left:3%}
+.find_flied{ width:100%; position:relative}
+.find_flied ul li{ width:95%; margin:0 auto;}
+.find_flied ul li input[type="text"] { width:100%; border-bottom:1px solid #545454; height:50px;line-height:50px;  background:none; color:#545454}
+.find_flied ul li input[type="email"] { width:100%; border-bottom:1px solid #545454; height:50px;line-height:50px;  background:none; color:#545454}
+.find_id{width:100%; margin-top:5%; position:relative}
+.find_id input[type="text"] { width:95%; border:1px solid #545454; height:50px;line-height:50px;  background:#f0f0f0; color:#545454; margin:0 auto; padding-left:3%}
+
+.find_btn{width:97%; margin:0 auto}
+.find_btn ul li{text-align:center; width:50%; float:left; margin-top:3%; margin-bottom:3%}
+.find_btn ul li.confirm button[type="submit"]{ width:95%; height:50px; line-height:50px; background:#485ffc; color:#FFF; border-radius:7px; padding:0 5px; cursor:pointer;  border:0; margin:0 auto}
+.find_btn ul li.cancel button[type="button"]{ width:95%; height:50px; line-height:50px; background:#bf2b2b; color:#FFF; border-radius:7px; padding:0 5px; cursor:pointer;  border:0; margin:0 auto}
+
+/* head_nonsub*/
+.nonsub{ width:100%; height:160px; background:url(../img/head_back.png) repeat-x top center;}
+.nonsub h1{ font-weight:600; text-align:center; line-height:147px; color:#FFF; height:147px; position:relative; margin:0}
+.nonsub h1 span{ position:absolute; top:15px; left:30px}
+
+/* head_sub*/
+.hd_sub{width:100%; height:255px; background:url(../img/head_tab.png) repeat-x top center; color:#FFF;}
+.hd_sub h1{ font-weight:600; text-align:center; line-height:147px; color:#FFF; height:147px; position:relative; margin:0}
+.hd_sub h1 span{ position:absolute; top:0; left:30px}
+.hd_sub .menu{ position:relative; width:100%; margin:0 auto; height:95px; line-height:95px; background:none;}
+.hd_sub .menu ul li{ float:left; width:33.3%; text-align:center;  display:block;font-weight:600;}
+.hd_sub .menu ul li.active{ border-bottom:3px solid #647ddc;line-height:92px; color:#647ddc}
+.hd_sub .menu ul li a{text-decoration:none; color:#545454}
+
+
+.hd_sub2{width:100%; height:5%; background:url(../img/head_tab.png) repeat-x top center;}
+.hd_sub2 h1{ font-weight:600; text-align:center; line-height:147px; color:#FFF; height:147px; position:relative; margin:0}
+.hd_sub2 h1 span{ position:absolute; top:0; left:30px}
+.hd_sub2 .menu{ position:relative; width:100%; margin:0 auto; height:95px; line-height:95px; background:none;}
+.hd_sub2 .menu ul li{ float:left; width:33.3%; text-align:center;  display:block;font-weight:600;}
+.hd_sub2 .menu ul li.active{ border-bottom:3px solid #647ddc;line-height:92px; color:#647ddc}
+.hd_sub2 .menu ul li a{text-decoration:none; color:#545454}
+
+.hd_sub3{width:100%; height:5%; color:#647ddc;}
+
+/* 회원 */
+.membership{ width:100%; margin:5% auto;}
+.membership ul li input[type="text"] { width:95%; border-bottom:1px solid #545454; height:50px;line-height:50px;  background:none; color:#545454; margin:50px auto}
+.membership ul li input[type="password"] { width:95%; border-bottom:1px solid #545454; height:50px;line-height:50px;  background:none; color:#545454; margin:50px auto}
+
+/* menu_tab */
+.tab{ position:relative; top:-10px;left:0; z-index:-1}
+
+.searchOie div{display: inline-block;}
+/* .searchtest ul li{display: inline-block; border:1px solid red;} */
+
+/* 검색 */
+.scarch{width:100%; margin:0 auto; position:relative}
+.scarch input[type="search"] {width:95%; border-bottom:1px solid #545454; height:50px;line-height:50px;  background:none; color:#545454; margin:0 auto}
+.scarch button {width:10%; height:35px; line-height:35px; background:#4667f8; color:#FFF; border-radius:5px; padding:0 5px; cursor:pointer; border:0; position:absolute; top:25%; right:3%}
+
+.scarch2{width:50%; margin:0 auto; position:relative}
+.scarch2 input[type="search"] {width:55%; border-bottom:1px solid #545454; height:50px;line-height:50px;  background:none; color:#545454; margin:0 auto}
+.scarch2 button {width:10%; height:35px; line-height:35px; background:#4667f8; color:#FFF; border-radius:5px; padding:0 5px; cursor:pointer; border:0; position:absolute; top:25%; right:3%}
+
+/* 댓글 등록 */
+.replyreg{width:100%; margin:0 auto; position:relative}
+/*.replyreg input[type="search"] {width:85%; border-bottom:1px solid #545454; height:50px;line-height:50px;  background:none; color:#545454; margin:0 auto}*/
+.replyreg button {width:10%; height:5px; line-height:5px; background:#4667f8; color:#FFF; border-radius:5px; padding:0 5px; cursor:pointer; border:0; position:absolute; top:0%; right:1%}
+
+
+
+
+/* .choice2{width:50%; margin:20px auto;} */
+/* select */
+.choice{width:100%; margin:20px auto;}
+.choice .set{width:50%; float:left; height:35px;}
+.choice .btn{width:50%; float:right; text-align:right; position:relative}
+.choice .btn button {width:40%; height:35px; line-height:35px; background:#fc6f48; color:#FFF; border-radius:5px; padding:0 5px; cursor:pointer; border:0; position:absolute; top:25%; right:0}
+
+
+.choice3{width:50%; margin:20px auto;}
+.choice3 .set{width:40%; float:left; height:35px;}
+/*.choice3 .btn{width:50%; float:right; text-align:right; position:relative}
+.choice3 .btn button {width:40%; height:35px; line-height:35px; background:#fc6f48; color:#FFF; border-radius:5px; padding:0 5px; cursor:pointer; border:0; position:absolute; top:25%; right:0} */
+
+.scarch3{width:45%; margin:0 auto; position:relative}
+.scarch3 input[type="search"] {width:95%; border-bottom:1px solid #545454; height:50px;line-height:50px;  background:none; color:#545454; margin:0 auto}
+.scarch3 button {width:20%; height:35px; line-height:35px; background:#4667f8; color:#FFF; border-radius:5px; padding:0 5px; cursor:pointer; border:0; position:absolute; top:25%; right:3%}
+
+
+
+.choice .btn2{width:50%; float:right; text-align:center; position:relative; right: 75px;}
+.choice .btn2 button {width:40%; height:35px; line-height:35px; background:#fc6f48; color:#FFF; border-radius:5px; padding:0 5px; cursor:pointer; border:0; position:absolute; top:25%; right:0}
+
+.notice_reg{width:95%; margin:20px auto;}
+.notice_reg .btn button {width:15%; height:35px; line-height:35px; background:#fc6f48; color:#FFF; border-radius:5px; padding:0 5px; cursor:pointer; border:0; position:absolute; top:25%; right:3%}
+
+/* 사진보기 */
+.img_list{ width:100%; margin:120px auto; border-top:1px solid #b2b2b2; clear:both;}
+.img_list .up_list { width:100%; line-height:245px; border-bottom:1px dotted #b2b2b2; position:relative;}
+.img_list .up_list ul p{position: absolute; top:0; right:2%; height:52px}
+.img_list .up_list ul li.poto { margin:30px; border:1px solid #b2b2b2; width:252px; height:182px;}
+.img_list .up_list ul li.tit {display: inline-block; position: absolute; top:0; left: 300px;font-weight: 600;line-height: 40px; color:#545454}
+.img_list .up_list ul li.tit span{ background-color:#fc6f48; padding:5px 7px 5px 7px; color:#FFF; margin:0 0 0 10px; border-radius:3px}
+.img_list .up_list ul li.info {display: inline-block; position: absolute; top:40px; left: 300px;line-height: 40px; color:#545454}
+.img_list .up_list ul li.day {display: inline-block; position: absolute; top:80px; left: 300px;line-height: 40px; color:#545454}
+
+.table_list{width:100%;margin:80px auto;}
+.board_type {margin:0 auto; border-top:1px solid #a3aac8; width:100%;}
+.board_type caption{top:auto; text-indent:-9999%; width:1px; height:1px; line-height:0; color:#FFFFFF;}
+.board_type th, .board_type td {border-bottom:1px solid #dcdcdc; border-left:0px; border-right:0px; border-top:0px; color:#3f3e3e; line-height:48px;}
+.board_type th { font-weight:600; color:#333333; padding:3px 20px; background:#fafbfd url(../img/table_thbg.gif) no-repeat right 7px; text-align:center;}
+.board_type .table_th_last{font-weight:600; color:#333333; padding:3px 20px; background:#fafbfd; text-align:center;}
+.board_type td {font-weight:400; color:#6a6969; padding:3px 25px; text-align:center;line-height:100px;}
+.board_type td img{vertical-align:middle; padding:0;}
+.board_type td.sign button[type="submit"]{ width:50%; height:50px; line-height:50px; background:#4877fc; color:#FFF; border-radius:5px; padding:0 5px; cursor:pointer; border:0;}
+.board_type td.lift button[type="submit"]{ width:50%; height:50px; line-height:50px; background:#fc4848; color:#FFF; border-radius:5px; padding:0 5px; cursor:pointer; border:0;}
+
+.board_type a { color:#333333;}
+.board_type a:link, .board_type a:visited, .board_type a:focus{color:#333333;}
+.board_type a:hover, .board_type a:active{color:#485ca0; border-bottom:1px solid #485ca0;}
+
+/* 설정 */
+.set_table{margin:50px auto; border-top:1px solid #a3aac8; width:95%;}
+.set_table caption{top:auto; text-indent:-9999%; width:1px; height:1px; line-height:0; color:#FFFFFF;}
+.set_table th, .set_table td {border-bottom:1px solid #dcdcdc; border-left:0px; border-right:0px; border-top:0px; color:#3f3e3e; line-height:60px;}
+.set_table th { font-weight:600; color:#333333; padding:3px 20px; text-align:left;background:#fafbfd;}
+.set_table td { font-weight:600; color:#6a6969; padding:3px 25px; text-align:left;line-height:50px;}
+.set_table td.rt{color:#6a6969; padding:3px 25px; text-align:right;line-height:50px;}
+
+.set_btn{width:95%;margin:0 auto}
+.set_btn button[type="submit"]{ width:100%; height:50px; line-height:50px; background:#485ffc; color:#FFF; border-radius:7px; padding:0 5px; cursor:pointer;  border:0; }
+
+/* 묻고답하기 - 등록 */
+.registration{ width:100%; margin:0 auto;}
+.registration ul li{ width:100%; margin:0 auto; position:relative}
+.registration ul li input[type="text"] { width:95%; border-bottom:1px solid #545454; height:40px;line-height:40px;  background:none; color:#545454; margin:5px auto; position:relative}
+.registration ul li input[type="password"] { width:95%; border-bottom:1px solid #545454; height:40px;line-height:40px;  background:none; color:#545454; margin:5px auto; position:relative}
+.registration ul li input[type="email"] { width:95%; border-bottom:1px solid #545454; height:40px;line-height:40px;  background:none; color:#545454; margin:5px auto; position:relative}
+.registration ul li span button {width:7%; height:50px; line-height:50px; background:#4667f8; color:#FFF; border-radius:5px; padding:0 5px; cursor:pointer; border:0; position:absolute; top:15px; right:3%}
+.registration ul li.select{width:95%; margin:0 auto;}
+.registration ul li.select2{width:50%; margin:0 auto;}
+.registration ul li.input{width:50%; margin:0 auto;}
+.registration ul li.poto_zone{width:95%; margin:0 auto; border:1px solid #b2b2b2;  text-align:center; line-height:450px;}
+.registration ul li textarea{width:95%; margin:0 auto; border:1px solid #b2b2b2;  padding:20px 0 0 10px}
+.registration_add{width:95%; margin:30px auto}
+.registration_add ul li button{ width:10%; height:50px; line-height:50px; background:#6f6f6f; color:#FFF; border-radius:7px; padding:0 5px; cursor:pointer; border:0; float:right; margin-left:10px}
+
+.registration_btn{width:95%;margin:5px auto}
+.registration_btn button[type="submit"]{ width:45%; height:50px; line-height:50px; background:#fc6f48; color:#FFF; border-radius:7px; padding:0 5px; cursor:pointer;  border:0;}
+.registration_btn button[type="text"]{ width:45%; height:50px; line-height:50px; background:#4667f8; color:#FFF; border-radius:7px; padding:0 5px; cursor:pointer;  border:0;}
+
+
+.registration label input[type="text"] { width:95%; border-bottom:1px solid #545454; height:50px;line-height:50px;  background:none; color:#545454; margin:20px auto; position:relative}
+.registration textarea[type="text"] { width:95%; border-bottom:1px solid #545454; height:50px;line-height:50px;  background:none; color:#545454; margin:20px auto; position:relative}
+
+
+.regi_btn{width:97%; margin:150px auto;}
+.regi_btn ul li{text-align:center; width:50%; float:left; margin-bottom:3%}
+.regi_btn ul li.confirm button[type="submit"]{ width:95%; height:50px; line-height:50px; background:#485ffc; color:#FFF; border-radius:7px; padding:0 5px; cursor:pointer;  border:0; margin:0 auto}
+.regi_btn ul li.cancel button[type="button"]{ width:95%; height:50px; line-height:50px; background:#bf2b2b; color:#FFF; border-radius:7px; padding:0 5px; cursor:pointer;  border:0; margin:0 auto}
+
+/* 친구등록-팝업 */
+.fricheck{float:left; width:50%; position:relative; margin:0 auto}
+.fricheck ul li{color:#545454;}
+.fricheck ul li span{position:absolute; top:24% ;left:20%; }
+
+/* 주소-팝업 */
+.addr_pop{ width:95%; margin:0 auto}
+.addr_pop ul li{ text-align:center;}
+
+.addr_d{width:95%; margin:20px auto; position:relative}
+.addr_d input[type="text"] { width:100%; border:1px solid #545454; height:50px;line-height:50px;  background:#ffffff; color:#545454; float:right}
+
+.addr_btn{width:95%; margin:0 auto}
+.addr_btn button[type="submit"]{ width:100%; height:50px; line-height:50px; background:#485ffc; color:#FFF; border-radius:7px; padding:0 5px; cursor:pointer;  border:0; margin-top:20px}
+
+
+/* 묻고답하기 - 내용보기 */
+.view_title{ width:95%; margin:0 auto; line-height:50px; background-color:#f1f1f1; border-top:1px solid #8c8c8c; border-bottom:1px solid #8c8c8c; position:relative}
+.view_title ul li.subject{ display:block;  color:#545454; padding-left:30px}
+.view_title ul li.subject span{position:absolute; top:0; right:30px; text-align:right;18px}
+
+.view_sub_t{ width:95%; margin:0 auto; line-height:50px;border-bottom:1px solid #8c8c8c; position:relative}
+.view_sub_t ul li.friend{ display:block; color:#545454; padding-left:30px; color:#863333}
+.view_sub_t ul li.friend span{ position:absolute; top:0; right:30px; text-align:right; color:#545454}
+
+.view_content{width:95%; margin:30px auto; height:auto;}
+
+.view_reply{width:95%; margin:0 auto; border-top:1px solid #8c8c8c; border-bottom:1px solid #8c8c8c; position:relative}
+.view_reply ul {border-bottom:1px dotted #8c8c8c;}
+.view_reply ul li.user_info{ width:100%;margin:20px 0 20px 0}
+.view_reply ul li.comment {width:100%;;  margin:10px 0 20px 0}
+
+.view_reform{width:95%; margin:30px auto;}
+.view_reform ul li input[type="text"] { width:85%; border:1px solid #545454; height:60px;line-height:60px;  background:#ffffff; color:#545454; float:left; padding-left:10px}
+.view_reform ul li button[type="submit"]{ width:12%; height:60px; line-height:60px; background:#485ffc; color:#FFF; border-radius:5px; padding:0 5px; cursor:pointer;  float:right}
+
+.view_btn{width:95%;margin:0 auto}
+.view_btn button[type="submit"]{ width:100%; height:50px; line-height:50px; background:#fc6f48; color:#FFF; border-radius:7px; padding:0 5px; cursor:pointer;  border:0; margin-top:30px}
+
+
+.item-expand {
+  position: relative;
+  width: 100%;
+  max-height: 32px;
+  transition: max-height 0.1s ease-out;
+  overflow: hidden;
+}
+
+.item-expand.active {
+  max-height: 200px;
+  transition: max-height 0.3s ease-out;
+}
+
+
+
+#profile-bg {
+  position: fixed;
+  left: 0;
+  top: 44px;
+  width: 100%;
+  height: 150px;
+
+/*     background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/94311/bg.jpg') no-repeat transparent;*/
+  background-size: 100%;
+  background-position: 50% 20%;
+
+  text-align: center;
+}
+
+#content {
+  position: relative;
+  margin-top: 110px;
+  background-color: white;
+  /*box-shadow: 0px -1px 10px rgba(0,0,0,0.4);*/
+  padding-top: 110px;
+}
+
+#profile-info {
+  position: absolute;
+  top: -95px;
+  width: 100%;
+  z-index: 2;
+  text-align: center;
+}
+#profile-name {
+  color: #444;
+  font-size: 26px;
+}
+#profile-description {
+  font-size: 15px;
+  color: #888;
+}
+#profile-description a {
+  color: #888;
+}
+
+#profile-image {
+  display: block;
+  border-radius: 100px;
+  border: 1px solid #fff;
+  width: 128px;
+  height: 128px;
+  margin: 30px auto 0;
+  box-shadow: 0px 0px 4px rgba(0,0,0,0.7);
+}
+
+.list-item-content {
+  padding: 5px;
+}
+
+.list-item {
+  color: #666666;
+}
+
+.post {
+  color: #444;
+}
+
+.post-time {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  font-size: 11px;
+  color: #888;
+}
+
+.post-profile-image {
+  display: inline-block;
+  vertical-align: top;
+  width: 48px;
+  height: 48px;
+  margin-right: 10px;
+}
+.post-options {
+  position: absolute;
+  font-size: 16px;
+  right: 5px;
+  bottom: 5px;
+  color: #888;
+}
+
+
+
+
+.background-grey {
+  background-color: #F7F7F7;
+}
+
+.td-title {
+  position: absolute;
+  top: 70px;
+  width: 100%;
+  text-align: center;
+}
+
+.td-title span {
+  font-weight: bold;
+}
+
+td-cards {
+  display: block;
+}
+
+td-card {
+  position: absolute;
+  top: calc(50% - 150px);
+  left: calc(50% - 150px);
+  width: 300px;
+  height: 300px;
+  box-shadow: 0px 1px 10px rgba(0,0,0,0.5);
+  border-radius: 3px;
+  background-color: transparent;
+}
+
+td-card img {
+  max-width: 100%;
+  border-radius: 4px;
+}
+
+.yes-text {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 30px;
+  color: #4CAF50;
+  opacity: 0;
+}
+
+.no-text {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+  color: #F44336;
+  opacity: 0;
+}
+
+.discard {
+  position: absolute;
+  bottom: 20px;
+  padding: 10px 15px;
+  color: #FFF;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 0 5px 5px 0;
+}
+
+td-card#end-card {
+  background-color: none;
+  box-shadow: none;
+  border-radius: none;
+}
+
+#end-card i {
+  position: absolute;
+  top: calc(50% - 55px);
+  left: calc(50% - 40px);
+  font-size: 100px;
+}
+
+
+.fade {
+  -webkit-transition: 0.2s opacity linear;
+  transition: 0.2s opacity linear;
+  opacity: 0;
+}
+

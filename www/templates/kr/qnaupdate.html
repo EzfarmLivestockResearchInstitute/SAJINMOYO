@@ -1,0 +1,130 @@
+<ion-view view-title="묻고답하기 수정">
+  <ion-content>
+
+    <div class="registration">
+      <ul>
+        <li>
+          <label>
+            <input id="pid" name="pid" type="hidden" ng-model="qnaView.pid"></input>
+            <input id="title" name="title" type="text" ng-model="qnaView.title" maxlength="100" placeholder="제목을 입력해주세요."></input>
+          </label>        
+        </li>
+
+        <div id="map_update" data-tap-disabled="true" style="height: 200px;"></div>
+        <li>    
+            <div class="registration_btn">
+            <p>
+              <label>
+                <input id="addr_google" name="addr_google" type="text" ng-model="qnaView.address_detail"> 
+              </label>
+              <center>
+                <a><button type="text" class="button button-royal" id="addr_google_find">주소찾기</button></a>
+              </center>
+            </p>
+          </div>
+        </li>
+
+        <li class="select">          
+          <select ng-model="qnaView.expert" name="expert" style="width:100%; height:40px; border-top:0; background: #fff; border-right:0; border-left:0;">
+            <option value="">대상선택</option>
+            <option value="2">전체</option>
+            <option value="0">친구</option>
+            <!-- <option value="1">전문가</option> -->
+            <option value="3">비공개</option>
+          </select>
+        </li>
+
+        <li ng-if="qnaView.expert == 0" class="select">        
+          <select ng-model="qnaView.open_scope" name="open_scope" ng-click="open_scope_click(qnaView.open_scope)" ng-change="open_scope_select(qnaView.open_scope)" style="width:100%; height:40px; border-top:0; background: #fff; border-right:0; border-left:0;">
+            <option value="">공개범위</option>
+            <!-- <option value="01">비공개</option> -->
+            <option value="02">전체친구</option>
+            <option value="03">지정친구</option>
+            <option value="05">그룹친구</option>
+            <!-- <option value="04">전체공개</option> -->
+          </select>   
+          
+          <input ng-if="select_friend_nickname !== ''" type="hidden" ng-model="select_friend_nickname" id="select_friend_nickname"/>
+          <input type="hidden" ng-model="select_friend_sn" id="select_friend_sn"/>
+
+          <div ng-if="qnaView.open_scope == 05">  
+            <select id="group_snUpdate" ng-model="qnaView.group_sn" style="width:100%; height:40px; border-top:0; background: #fff; border-right:0; border-left:0;">          
+              <option ng-repeat="grouplists in grouplist" value="{{grouplists.group_sn}}" >{{grouplists.group_nm}}</option>            
+            </select>
+          </div>
+        </li>
+
+
+        <li class="select">
+          <select ng-model="qnaView.livestock" ng-change="livestock_select(qnaView.livestock)" name="livestock" style="width:100%; height:40px; border-top:0; background: #fff; border-right:0; border-left:0;">
+            <option ng-repeat="likestocks in likestock" value="{{likestocks.seq}}">{{likestocks.ko_name}}</option>
+          </select>
+        </li>
+
+        <li class="select">
+          <select id="oie_cd" ng-model="qnaView.oie_cd" name="oie_cd" style="width:100%; height:40px; border-top:0; background: #fff; border-right:0; border-left:0;">
+            <option value="99">질병선택</option>
+            <option ng-repeat="oies in oie" value="{{oies.code}}">{{oies.ko_name}}</option>
+          </select>
+        </li>
+
+        <li>
+          <label>
+            <textarea id="contents" name="contents" ng-model="qnaView.contents" rows="10" cols="30" maxlength="2000" placeholder="내용을 입력해주세요">{{qnaView.contents}}</textarea>
+          </label>    
+        </li>
+      </ul>
+
+      <p></p>
+
+      <ul>
+        <li>
+          <div ng-show="imgAll" style="width:95%; margin:0 auto; border:1px solid #b2b2b2;  padding:10px 0 0 10px">
+            <p>
+              <button class="button icon ion-camera" ng-click="takePicture()"></button>
+              <button class="button icon ion-images" ng-click="getPicture()"></button>
+            </p>          
+            <div>
+              <ion-slides style="background-color: #A6A6A6;" options="galleryOptions" slider="gallerySlider">
+                <ion-slide-page style="background-color: #A6A6A6;" ng-repeat="attach in imgAll">
+                  <img ng-src="{{attach}}"/>
+                  <button class="button icon ion-close" style="position: absolute; top:20px; right: 0px; background: none;" ng-click="imgRemove(attach)"></button>
+                </ion-slide-page>
+              </ion-slides>
+            </div>
+          </div>
+        </li>
+
+        <p></p>
+
+        <li>  
+          <div ng-show="videoAll" style="width:95%; margin:0 auto; border:1px solid #b2b2b2;  padding:10px 0 0 10px">
+            <p>
+              <button class="button icon ion-videocamera" ng-click="takeVideo()"></button>
+              <button class="button icon ion-film-marker" ng-click="getVideo()"></button>
+            </p>          
+            <div>
+              <ion-slides style="background-color: #A6A6A6;" options="galleryOptions" slider="gallerySlider">
+                <ion-slide-page style="background-color: #A6A6A6;" ng-repeat="video in videoAll">
+                  <video style="width:100%;" ng-src="{{video | trusted}}" data-tap-disabled="true" controls="controls"></video>
+                  <button class="button icon ion-close" style="position: absolute; top:0px; right: 0px; background: none;" ng-click="videoRemove(video)"></button>
+                </ion-slide-page>
+              </ion-slides>
+            </div>
+            <p></p>
+
+          </div>
+        </li>
+
+      </ul>
+    </div>
+
+    <ion-item >
+      <div class="registration_btn">
+        <a><button type="submit" class="button button-energized" ng-click="qnaUpdate(qnaView)">수정</button></a>
+        <a href="#/app/qnalist"><button type="text" class="button button-royal">취소</button></a>
+      </div>
+    </ion-item> 
+
+  </ion-content>
+</ion-view>

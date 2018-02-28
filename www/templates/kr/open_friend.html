@@ -1,0 +1,66 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-header bar-positive">
+    <h1 class="title">지정친구 선택</h1>
+      <button class="button button-clear button-primary" ng-click="modal_friend.hide()">닫기</button>
+  </ion-header-bar>
+
+  <ion-content class="padding">
+
+
+<!--     <ion-list>
+     <ion-item ng-repeat="open_friend_detail in open_friend_list">
+            <label class="checkbox">
+              <input type="checkbox" checked="open_friend_detail.open_friend">
+            </label>
+            {{open_friend_detail.open_friend}}   별명 : {{open_friend_detail.nickname}} || 아이디 : {{open_friend_detail.user_id}}
+    </ion-item>
+    </ion-list> -->
+
+
+    <div>
+      <ion-checkbox ng-repeat="open_friend_detail in open_friend_list" ng-checked="{{open_friend_detail.select_pid}}"  ng-model="open_friend_detail.select_pid">별명 : {{open_friend_detail.nickname}} || 아이디 : {{open_friend_detail.user_id}}</ion-checkbox>
+    </div>
+
+
+
+
+
+
+<!--     <div>
+      <label class="item item-input">
+        <select id="prov" name="prov" ng-model="prov" ng-change="address1(prov)">
+          <option value="0">시/도 선택</option>
+          <option ng-repeat="addressProvs in addressProv" value="{{addressProvs.provkor}}">{{addressProvs.provkor}}</option>
+        </select>  
+      </label>
+
+      <label class="item item-input">
+        <select id="county" name="county" ng-model="county" ng-change="address2(prov,county)">
+          <option value="0">구/솜 선택</option>
+          <option ng-repeat="addressCountys in addressCounty" value="{{addressCountys.countykor}}">{{addressCountys.countykor}}</option>
+        </select>
+      </label> 
+
+      <label class="item item-input">
+        <select id="bag" name="bag" ng-model="bag" ng-change="address3(bag)">          
+          <option value="0">박/허러 선택</option>
+          <option ng-repeat="addressBags in addressBag" value="{{addressBags.bagkor}}:{{addressBags.pid}}">{{addressBags.bagkor}}</option>
+        </select>
+      </label>
+    </div>
+
+    <div>
+      <label class="item item-input">주소 : 
+        <div id="addressAll">{{addressAll}}</div>
+      </label>
+    </div> -->
+
+  </ion-content>
+
+  <ion-footer-bar ng-click="open_friend_ok(open_friend_list)">
+    <h2 class="title">
+      <i class="button button-full button-positive">확인</i>
+    </h2>
+  </ion-footer-bar>
+  
+</ion-modal-view>

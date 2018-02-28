@@ -1,0 +1,128 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <!-- TABS -->
+    <ion-tabs class="tabs-striped  tabs-top tabs-color-active-positive">
+    
+      <ion-tab title="묻고답하기" href="#/app/qnalist">
+        <ion-nav-view name="tab-qnalist"></ion-nav-view>
+      </ion-tab>
+
+      <ion-tab title="공지사항" href="#/app/notice">
+        <ion-nav-view name="tab-notice"></ion-nav-view>
+      </ion-tab>
+
+      <ion-tab title="내정보" href="#/app/friendlist">
+        <ion-nav-view name="tab-friend"></ion-nav-view>
+      </ion-tab>
+
+    </ion-tabs>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <ion-header-bar class="bar-stable">
+      <h1 style="text-align: left;" class="title">MEMU</h1>
+    </ion-header-bar>
+    
+    <ion-content>
+      <div ng-controller="MenuCtrl">
+        <div>
+
+          <ion-list>
+            <div>
+
+              <ion-item menu-close style="background-color: #394b89; color: #fff;" class="item-stable" ng-click="toggleGroup(group)">
+                <i style="color: #fff;" class="icon" ng-class="isGroupShown(group) ? 'ion-minus' : 'ion-plus'"></i>
+                &nbsp;
+                  묻고답하기
+              </ion-item>
+
+              <ion-item menu-close style="padding-left: 40px;" class="item-accordion" ng-click="qnalist('item1')" ng-show="isGroupShown(group)">
+                사진보기
+              </ion-item>
+              <ion-item menu-close style="padding-left: 40px;" class="item-accordion" ng-click="qnalist('item2')" ng-show="isGroupShown(group)">
+                리스트보기
+              </ion-item>
+              <ion-item menu-close style="padding-left: 40px;" class="item-accordion" ng-click="qnareg()" ng-show="isGroupShown(group)">
+                등록하기
+              </ion-item>
+
+<!--               <ion-item style="background-color: #394b89; color: #fff;" class="item-stable" href="#/app/notice">
+                <i style="color: #fff;" class="icon ion-speakerphone"></i>
+                &nbsp;
+                  공지사항
+              </ion-item> -->
+
+              <ion-item menu-close style="background-color: #394b89; color: #fff;" class="item-stable" ng-click="notice()">
+                <i style="color: #fff;" class="icon ion-speakerphone"></i>
+                &nbsp;
+                  공지사항
+              </ion-item>
+
+
+              <ion-item menu-close style="background-color: #394b89; color: #fff;" class="item-stable" ng-click="toggleGroup2(group)">
+                <i style="color: #fff;" class="icon" ng-class="isGroupShown2(group) ? 'ion-minus' : 'ion-plus'"></i>
+                &nbsp;
+                  내정보
+              </ion-item>
+
+              <ion-item menu-close style="padding-left: 40px;" class="item-accordion" ng-click="userUpdate()" ng-show="isGroupShown2(group)">
+                기본정보
+              </ion-item>
+
+<!--               <ion-item style="padding-left: 40px;" class="item-accordion" ng-show="isGroupShown2(group)">
+                버전정보
+              </ion-item> -->
+
+              <ion-item menu-close style="padding-left: 40px;" class="item-accordion" ng-show="isGroupShown2(group)">
+                고객문의 
+                <p>&nbsp;E-Mail : master@email.com</p>
+              </ion-item>            
+
+
+<!--               <ion-item style="background-color: #394b89; color: #fff;" class="item-stable" href="#/app/friendlist">
+                <i style="color: #fff;" class="icon ion-person-add"></i>
+                &nbsp;
+                  친구등록
+              </ion-item> -->
+
+              <ion-item menu-close style="background-color: #394b89; color: #fff;" class="item-stable" ng-click="friendreg()">
+                <i style="color: #fff;" class="icon ion-person-add"></i>
+                &nbsp;
+                  친구등록
+              </ion-item>
+
+              <ion-item menu-close style="background-color: #394b89; color: #fff;" class="item-stable" ng-click="userUpdate()">
+                <i style="color: #fff;" class="ion-settings"></i>
+                &nbsp;
+                  가입정보 수정
+              </ion-item>
+
+              <ion-item menu-close style="background-color: #394b89; color: #fff;" class="item-stable" ng-click="logout()">
+                <i style="color: #fff;" class="icon ion-unlocked"></i>
+                &nbsp;
+                  로그아웃
+              </ion-item>
+
+              <ion-item menu-close style="background-color: #394b89; color: #fff;" class="item-stable" ng-click="regout()">
+                <i style="color: #fff;" class="icon ion-ios-redo-outline"></i>
+                &nbsp;
+                  회원탈퇴
+              </ion-item>                        
+
+            </div>
+          </ion-list>
+        </div>
+      </div>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

@@ -1,0 +1,120 @@
+<ion-view view-title="Асуулт хариулт оруулах">
+  <ion-content>
+  <div class="registration">
+    <ul>
+      <li>    
+     		<label>
+     			<input id="title2" name="title2" type="text" ng-model="qnaReg.title" maxlength="100" placeholder="Гарчиг Оруулах"></input>
+     		</label>
+      </li>
+
+      <div id="map" data-tap-disabled="true" style="height: 200px;"></div>
+
+      <li class="select">
+        <select ng-model="qnaReg.expert" name="expert" style="width:100%; height:40px; border-top:0; background: #fff; border-right:0; border-left:0;">
+          <option value="">сонгох</option>
+          <option value="2">Нийт</option>
+          <option value="0">Найз</option>
+          <!-- <option value="1">Мэргэжилтэн сонгох</option> -->
+          <option value="3">Хувийн</option>
+        </select>
+      </li>
+
+      <li ng-if="qnaReg.expert == 0" class="select">
+        <select ng-model="qnaReg.open_scope" name="open_scope" ng-click="open_scope_click(qnaReg.open_scope)" ng-change="open_scope_select(qnaReg.open_scope)" style="width:100%; height:40px; border-top:0; background: #fff; border-right:0; border-left:0;">
+          <option value="">Нийтийн тохиргоо</option>
+          <!-- <option value="01">비공개</option> -->
+          <option value="02">Нийт найз</option>
+          <option value="03">Сонгосон найз</option>
+          <option value="05">Group найз</option>
+        </select>
+        <input ng-if="qnaReg.open_scope == 03" ng-show="select_friend_nickname" type="text" ng-model="select_friend_nickname" id="select_friend_nickname"/>
+        <input type="hidden" ng-model="select_friend_sn" id="select_friend_sn"/>
+        
+        <div ng-if="qnaReg.open_scope == 05">  
+          <select id="group_sn" style="width:100%; height:40px; border-top:0; background: #fff; border-right:0; border-left:0;">          
+            <option ng-repeat="grouplists in grouplist" value="{{grouplists.group_sn}}">{{grouplists.group_nm}}</option>            
+          </select>
+        </div>
+        
+      </li>
+
+      <li class="select">
+        <label>
+          <select id="livestock" style="width:100%; height:40px; border-top:0; background: #fff; border-right:0; border-left:0;" ng-change="livestock_select(livestock_value)" ng-model="livestock_value">
+            <option value="0">Type of animals</option>
+            <option ng-model="likestocks.seq" ng-repeat="likestocks in likestock" value="{{likestocks.seq}}">{{likestocks.mo_name}}</option>
+          </select>          
+        </label>
+      </li>
+
+
+      <li class="select">
+        <label>
+          <select id="oie_cd" style="width:100%; height:40px; border-top:0; background: #fff; border-right:0; border-left:0;">
+            <option value="99">Type of disease</option>
+            <option ng-model="oies.code" ng-repeat="oies in oie" value="{{oies.code}}">{{oies.mo_name}}</option>
+          </select>          
+        </label>
+      </li>
+
+      <li>    
+        <label>
+          <textarea id="contents" name="contents" ng-model="qnaReg.contents" rows="10" cols="30" maxlength="2000" placeholder="Агуулгыг оруулна уу"></textarea>
+        </label>
+      </li>
+
+    </ul>
+
+    <p></p>
+    
+    <ul>
+      <li>
+        <div style="width:95%; margin:0 auto; border:1px solid #b2b2b2; padding:10px 0 0 10px">
+          <p>
+            <button class="button icon ion-camera" ng-click="takePicture()"></button>
+            <button class="button icon ion-images" ng-click="getPicture()"></button>
+          </p>        
+          <div>
+            <ion-slides options="galleryOptions" slider="gallerySlider">
+              <ion-slide-page ng-repeat="attach in imageall">
+                <img ng-src="{{attach}}"/>
+                <button class="button icon ion-close" style="position: absolute; top:20px; right: 0px; background: none;" ng-click="imgRemove(attach)"></button>
+              </ion-slide-page>
+            </ion-slides>
+          </div>
+        </div>
+      </li>
+
+      <p></p>
+      
+      <li>
+        <div style="width:95%; margin:0 auto; border:1px solid #b2b2b2; padding:10px 0 0 10px">
+          <p>
+            <button class="button icon ion-videocamera" ng-click="takeVideo()"></button>
+            <button class="button icon ion-film-marker" ng-click="getVideo()"></button>
+          </p>        
+          <div>
+            <ion-slides options="galleryOptions" slider="gallerySlider">
+              <ion-slide-page ng-repeat="video in videos">
+                <video style="width:100%;" ng-src="{{video}}" data-tap-disabled="true" controls="controls"></video>
+                <button class="button icon ion-close" style="position: absolute; top:0px; right: 0px; background: none;" ng-click="videoRemove(video)"></button>
+              </ion-slide-page>
+            </ion-slides>
+          </div>
+          <p></p>
+        </div>
+      </li>
+    </ul>
+
+    <p></p>
+
+  	<ion-item>
+      <div class="registration_btn">
+        <a><button type="submit" ng-click="qnaValchk(qnaReg)">Хадгалах</button></a>
+        <a href="#/app/qnalist"><button type="text" class="button button-royal">Цуцлах</button></a>
+      </div>
+  	</ion-item>	
+    </div>
+  </ion-content>
+</ion-view>

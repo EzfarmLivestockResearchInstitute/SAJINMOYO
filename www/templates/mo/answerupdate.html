@@ -1,0 +1,18 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-header bar-positive">
+    <h1 class="title">Сэтгэгдэл засах</h1>
+      <button class="button button-clear button-primary" ng-click="modal.hide()">Хаах</button>
+  </ion-header-bar>
+
+  <ion-content class="padding">
+    <input type="hidden" id="pid" name="pid" ng-model="pid"/>
+    <input type="hidden" id="reply_sn" name="reply_sn" ng-model="reply_sn"/>
+    <input type="text" id="reply_cn" name="reply_cn" ng-model="reply_cn"/>
+  </ion-content>
+
+  <ion-footer-bar ng-click="answerUpdate(pid,reply_sn,reply_cn)">
+    <h2 class="title">
+      <i class="button button-full button-positive">Хадгалах</i>
+    </h2>
+  </ion-footer-bar>
+</ion-modal-view>

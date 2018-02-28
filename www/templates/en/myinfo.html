@@ -1,0 +1,55 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-header bar-positive">
+    <h1 class="title">Basic information</h1>
+      <button class="button button-clear button-primary" ng-click="modal.hide()">Close</button>
+  </ion-header-bar>
+
+  <ion-content>
+
+    <div id="profile-bg"></div>
+      <div id="content" style="margin-top: 80px; padding-top: 50px;">
+        <div id="profile-info">
+          <img id="profile-image" src="{{imguser}}">
+        </div>
+    </div>
+
+    <table class="set_table" summary="Basic information">
+      <caption>Basic information</caption>
+      <colgroup>
+        <col width="50%"/>
+        <col width="50%"/>
+      </colgroup>
+      <thead>
+        <tr>
+          <th colspan="2">Basic information</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ID</td>
+          <td class="rt">{{infouserid}}</td>
+        </tr>
+        <tr>
+          <td>Name</td>
+          <td class="rt">{{infoname}}</td>
+        </tr>
+        <tr>
+          <td>Nickname</td>
+          <td class="rt">{{infonickname}}</td>
+        </tr>   
+        <tr>
+          <td>E-mail</td>
+          <td class="rt">{{infoemail}}</td>
+        </tr>              
+      </tbody>
+    </table>
+
+  </ion-content>
+
+  <ion-footer-bar ng-click="modal.hide()">
+    <h2 class="title">
+      <i class="button button-full button-positive">Close</i>
+    </h2>
+  </ion-footer-bar>
+  
+</ion-modal-view>

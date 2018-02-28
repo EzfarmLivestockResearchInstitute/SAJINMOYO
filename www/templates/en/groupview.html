@@ -1,0 +1,36 @@
+<ion-modal-view>
+
+  <ion-header-bar class="bar bar-header bar-positive">
+    <h1 class="title">Group View</h1>
+      <button class="button button-clear button-primary" ng-click="modalGroupviewClose()">Close</button>
+  </ion-header-bar>
+
+  <ion-content class="padding">
+	  
+	<ion-list>
+	    <div ng-repeat="group in groups">
+	        <ion-item class="item-stable" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}">
+	        	<i class="icon" ng-class="isGroupShown(group) ? 'ion-minus' : 'ion-plus'"></i>
+	        	&nbsp; {{group.name}}
+	        </ion-item>
+	        <div class="item-accordion" ng-repeat="item in group.group_user_id" ng-show="isGroupShown(group)">
+	        	<ion-item>
+	        	ID : 
+	    			{{item}}
+	    			<button style="position: absolute; top:3px; right: 10px;" class="button button-calm ion-minus-round" ng-click="groupViewDel(item)"></button>
+	    		
+            	</ion-item>
+	        </div>
+
+	    </div>
+	</ion-list>
+
+  </ion-content>
+
+  <ion-footer-bar ng-click="modalGroupviewClose()">
+    <h2 class="title">
+      <i class="button button-full button-positive">Close</i>
+    </h2>
+  </ion-footer-bar>
+  
+</ion-modal-view>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script> 
+    <script src="lib/angular-websocket/dist/angular-websocket.js"></script>
+    <script src="lib/ionic-service-core/ionic-core.js"></script>
+    <script src="lib/ionic-service-push/ionic-push.js"></script>
+      
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+      
+    <script src="js/PushNotification.js"></script>
+    <script type="text/javascript">
+
+      document.addEventListener("deviceready", onDeviceReady, true);
+
+        function onDeviceReady() {
+          pushNotification = window.plugins.pushNotification;
+
+          if(device.platform == 'android' || device.platform == 'Android'){  
+            document.getElementById('key_gubun').value = "android";
+            pushNotification.register(successHandler,errorHandler,{senderID: "632143622880",ecb:"onNotificationGCM"});
+          }else{
+            document.getElementById('key_gubun').value = "ios";
+            pushNotification.register(tokenHandler,errorHandler,{"badge":"true","sound":"true","alert":"true","ecb":"onNotificationAPN"});
+          }
+        }
+
+        function onNotificationGCM(e) {
+          switch( e.event ){
+            case 'registered':
+                if(e.regid.length > 0){
+                    //GCM에 등록된 단말기의 registrationID 값이 넘어온다
+                    //여기에서 서버로 e.regid를 전송하여 저장해 두어야 서버에서 푸쉬발송이 가능하다.
+                    console.log("e.regid : " + e.regid);
+                    document.getElementById('gcm_key').value = e.regid;
+                }
+            break;
+
+            case 'message':
+
+                //서버에서 푸쉬 메시지가 도착한 경우에 호출된디ㅏ.
+                if(e.foreground){
+                    //앱이 현제 실행중이 상태이다.
+                    //사운드로 푸싀메시지가 왔음을 알리자.
+                    //var my_media = new Media("/android_asset/www/"+e.soundname);
+                    //my_media.play();
+
+                  var soundfile = e.soundname || e.payload.sound;
+                    var my_media = new Media("/android_asset/www/" + soundfile);
+                    my_media.play();
+
+
+                }else{  
+                    //상태바에서 사용자가 클릭해서 앱이 실행되는 경우
+                    if(e.coldstart){
+                         //앱이 새로 구동되는 경우에 처리
+                    }else{
+                      //앱이 백그라운드에서 실행되고 있을때 처리
+                    }
+                }
+            break;
+
+            case 'error':
+
+            break;
+
+            default:
+              
+            break;
+          }
+        }
+
+      function onNotificationAPN(event){
+        var pushNotification = window.plugins.pushNotification;
+
+        if(event.alert){
+          navigator.notification.alert(event.alert);
+        }
+        if(event.sound){
+          var snd = new Media(event.sound);
+          snd.play();
+        }
+        if(event.badge){
+          pushNotification.setAppicationIconBadgeNumber(tokenHandler,errorHandler,event.badge);
+        }
+
+      }
+
+      function successHandler (result) {
+          
+      }
+
+      function errorHandler (error) {
+          
+      }    
+
+      function tokenHandler(result){
+        document.getElementById('token_key').value = result;
+
+      }
+
+
+      </script> 
+      
+
+      
+</head>
+<body>
+  <ion-view ng-app="starter" style="background-color:#f87846;">
+  
+    <ion-content ng-controller="LoginCtrl">
+      <div style="text-align: center;" class="log_background"><img src="img/log_back.png"></div>
+          <div class="form_flied">
+            <ul>
+              <li>
+                <label>
+                    <input id="rememberId" name="rememberId" type="text" placeholder="아이디"/>
+                    <input id="gcm_key" type="hidden"/>
+                    <input id="token_key" type="hidden"/>
+                    <input id="key_gubun" type="hidden"/>
+                </label>
+              </li>
+              <li>
+                  <label>
+                    <input id="password" name="password" type="password" placeholder="비밀번호"/>
+                </label>
+                </li>
+            </ul>
+            
+            <div class="checkbox logcheck">
+              <ul>
+                  <li>
+                      <label>
+                      <input id="passchk" name="chk" type="checkbox" value="pass"/><span>비밀번호저장</span>
+                    </label>
+                  </li>
+              </ul>
+          </div>
+                
+          <div class="checkbox logcheck">
+              <ul>
+                  <li>
+                      <label>
+                      <input id="idchk" name="chk" type="checkbox" value="id"/><span>아이디저장</span>
+                    </label>
+                  </li>
+              </ul>
+          </div>
+            
+        
+        <div class="log_btn">
+                <ul>
+                  <li class="login"><button type="submit" ng-click="login()">로그인</button></li>
+                  <li class="n_member"><button type="button" ng-click="loginReg()">회원가입</button></li>
+                </ul>
+            </div>
+              
+
+              <div class="log_find">
+                <ul>
+                    <li><a ng-click="idFindPopup()">아이디를 잊으셨나요?</a></li>
+                    <li><a ng-click="passFindPopup()">비밀번호를 잊으셨나요?</a></li>
+                  </ul>
+            </div>
+              
+        </div>
+      </div>
+    </ion-content>
+  </ion-view>
+
+
+
+</body>
+</html>
+

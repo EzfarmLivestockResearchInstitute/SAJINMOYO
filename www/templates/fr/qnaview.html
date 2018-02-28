@@ -1,0 +1,90 @@
+<ion-view view-title="Q&A Details">
+  <ion-content>
+	<ion-item class="item item-text-wrap">
+		<label>
+			<div id="title2">Title : {{qnaview.title}}</div>
+		</label>
+	</ion-item>
+
+	<ion-item>
+		<label>
+	  		<div id="nickname">Nickname : {{qnaview.nickname}}</div>
+		</label>
+	</ion-item>
+
+	<ion-item>
+		<div id="map" data-tap-disabled="true" style="height: 200px;"></div>
+	</ion-item>
+
+ 	<ion-item>
+    	<label>
+    		<div id="livestock">livestock : {{qnaview.livestock_fr}}</div>
+    	</label>
+  	</ion-item>
+
+  	<ion-item>
+    	<label>
+    		<div id="oie">disease : {{qnaview.oie_fr}}</div>
+    	</label>
+  	</ion-item>
+
+	<ion-item class="item item-text-wrap">
+    	<label>
+    		<div id="contents">Comment : {{qnaview.contents}}</div>
+    	</label>
+  	</ion-item>
+
+	<div style="padding: 5px;" ng-show="imglist">		
+	  <ion-slides style="background-color: #A6A6A6;" options="galleryOptions" slider="gallerySlider">
+	    <ion-slide-page style="background-color: #A6A6A6;" ng-repeat="attach in attchList">
+	      <img ng-src="{{attach.attc_file}}" ng-click="imgPopup(attach)">
+	      <button class="button icon ion-ios-download" style="position: absolute; top:20px; right: 0px; color: #fff; background: none;" ng-click="imgDown(attach)"></button>
+	    </ion-slide-page>
+	  </ion-slides>
+	</div>
+	
+	<div style="padding: 5px;" ng-show="videolist">
+     	<ion-slides style="background-color: #A6A6A6;" options="galleryOptions" slider="gallerySlider">
+        	<ion-slide-page style="background-color: #A6A6A6;" ng-repeat="video in attchList2">
+				<video style="width:100%;" data-tap-disabled="true" controls="controls">
+					<source src="{{video.attc_file | trusted}}" type="video/mp4">
+				</video>
+				<button class="button icon ion-ios-download" style="position: absolute; top:0px; right: 0px; color: #fff; background: none;" ng-click="videoDown(video)"></button>
+        	</ion-slide-page>
+      	</ion-slides>
+    </div>
+
+	<ion-list>
+		<ion-item class="item item-text-wrap" ng-repeat="answerdetail in answerList">
+   			<p>{{answerdetail.nickname}}  {{answerdetail.reg_dt}} </p>
+       		<p><h2>{{answerdetail.reply_cn}}</h2></p>
+
+        	<div ng-if="answerdetail.reg_id == guser_id">
+	        	<ion-option-button class="button-positive ion-settings" ng-click="update(answerdetail)">
+	          	</ion-option-button>	
+	        	<ion-option-button class="button-assertive ion-trash-a" ng-click="remove(answerdetail)">
+	        	</ion-option-button>
+	    	</div>
+   		</ion-item>
+	</ion-list>
+
+	<ion-item >
+    	<footer class="footer">
+    		<input type="hidden" id="pid" ng-model="qnaView.pid"/>
+        	<div class="replyreg">
+        		<input style="width:75%" maxlength="200" id="answer" name="answer" type="text" ng-model="qnaView.answer" placeholder="Please enter a comment.">
+        			<button class="button button-royal" ng-click="answerReg(qnaView)"><i class="icon ion-plus-round placeholder-icon" style="color:#fff;"></i></button>
+        		</input>
+        	</div>
+        </footer>
+	</ion-item>
+
+
+	<ion-item >
+    	<div class="button-bar">
+      		<button class="button button-block button-royal" ng-click="qnalist()">List</button>
+      	</div>
+	</ion-item>	
+
+  </ion-content>
+</ion-view> 

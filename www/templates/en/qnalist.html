@@ -1,0 +1,124 @@
+<ion-view view-title="Sajinmoyo">
+	<ion-content class="has-header">
+
+	    <div class="button-bar">
+        	<a class="button button-item1" ng-class="{'button-eztab' : isActive('item1')}" ng-click="setActive('item1')">View photos</a>
+		    <a class="button button-item2" ng-class="{'button-eztab' : isActive('item2')}" ng-click="setActive('item2')">View lists</a>
+		</div>
+
+		<p></p>
+
+
+	 	<div class="searchOie">
+			<div class="choice3" style="height:1px;">
+			   	<span class="set item-select item-stable" style="width:100%;">
+			        <select style="width:100%;" ng-model="animalsOie" ng-change="animalsOieChange('list',animalsOie)">
+						<option value="0">Disease name</option>
+						<option value="1">Animals</option>
+			       	</select>
+			   	</span>
+			</div>
+
+	 	    <div ng-if="animalsOie == 0" class="scarch3">
+				<input id="search" name="search" type="search" placeholder="Search"/>
+				<button type="button"><i class="icon ion-search placeholder-icon" ng-click="qnasearch()" style="color:#fff;"></i></button>
+			</div>
+
+	        <div ng-if="animalsOie == 1" class="scarch3">  
+	        	<select id="livestock" ng-model="livestock" ng-change="livestockChange(livestock)" style="width:100%; height:40px; border-top:0; background: #fff; border-right:0; border-left:0;">          
+	        		<option value="0">Type of animals</option>
+					<option ng-repeat="likestocks in likestock" value="{{likestocks.seq}}">{{likestocks.en_name}}</option>
+	          	</select>
+	        </div>
+		</div> 
+
+		<p></p>
+
+		<div class="choice">
+	       	<div class="set item-select item-stable">		
+		        <select style="width:100%;" ng-model="order" ng-change="qnaorder(order)">
+					<option value="0">Date of registration</option>
+					<option value="1">Nickname</option>
+					<option value="2">Nation</option>
+	           	</select>
+	       	</div>
+
+	       	<div class="btn">
+	       		<button type="submit" ng-click="regqna()"><i class="icon ion-compose placeholder-icon" style="color:#fff;">Register</i></button></div>
+	    	</div>
+
+
+
+			<div class="table_list" ng-if="active === 'item1'">
+				<ion-list>   	
+					<ion-item class="item-remove-animate item-thumbnail-left item-icon-right" ng-repeat="qnadetail in qnalist" ng-click="qnalistDetail(qnadetail.pid)">
+			   	
+			   			<img src="{{qnadetail.attc_file}}"/>
+			       		<p><h2><b>{{qnadetail.title}}</b></h2></p>
+			       		<p><h4>{{qnadetail.nickname}} | {{qnadetail.expert_nm_en}} | {{qnadetail.livestock_en}}</h4></p>
+			       		<p><h4>{{qnadetail.reg_dt}}</h4></p>
+			        
+							
+			       		<div ng-if="qnadetail.user_id == qnauser || gflaguser == 0">	
+			       			<i class="icon ion-chevron-right icon-accessory"></i>
+			        		<ion-option-button class="button-positive ion-settings" ng-click="update(qnadetail)">
+			          		</ion-option-button>	
+			        		<ion-option-button class="button-assertive ion-trash-a" ng-click="remove(qnadetail)">
+			          		</ion-option-button>	
+			       		</div>
+					</ion-item>
+				</ion-list>
+			</div>
+
+
+			<div class="table_list" ng-if="active === 'item2'">
+
+	            <table class="board_type" summary="View lists">
+
+	 				<ion-list>
+				        <ion-item>
+					        <div class="row with-header">
+				            	<div style="font-size:10pt;" class="col-20 cellBorder">Date</div>
+				            	<div style="font-size:10pt;" class="col-40 cellBorder">Title</div>
+				            	<div style="font-size:10pt;" class="col-20">Animals</div>
+				            	<div style="font-size:10pt;" class="col-20 cellBorder">Nickname</div>
+				    	        <div class="col-0"></div>
+					        </div>
+					    </ion-item>		
+
+					    <ion-item ng-repeat="qnadetail in qnalist" item="item" href="#/app/qnaview/{{qnadetail.pid}}" class="item-remove-animate">
+					         
+						   	<div class="row">
+						       	<div style="font-size:10pt;" class="col-20 cellBorder">{{qnadetail.reg_dt2}}</div>
+						        <div style="font-size:13pt;" class="col-50 cellBorder">{{qnadetail.title_concat}}</div>
+						        <div style="font-size:10pt;" class="col-20">{{qnadetail.livestock_en}}</div>
+						        <div style="font-size:10pt;" class="col-20 cellBorder">{{qnadetail.nickname}}</div>
+						        <div class="col-25" ng-if="qnadetail.user_id === qnauser || gflaguser == 0"">	
+						          	<i class="icon ion-chevron-right icon-accessory"></i>
+						        </div>
+						    </div>
+
+							<div ng-if="qnadetail.user_id === qnauser || gflaguser == 0"">	
+						       	<ion-option-button class="button-positive ion-settings" ng-click="update(qnadetail)">
+						       	</ion-option-button>	
+						       	<ion-option-button class="button-assertive ion-trash-a" ng-click="remove(qnadetail)">
+						        </ion-option-button>	
+					       	</div>			          
+					    </ion-item>
+					</ion-list>
+				</table>
+			</div>	 
+    	</div>	
+
+		<!-- 댕겨서 새로고침  -->
+	 	<ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">
+	    </ion-refresher>
+
+
+	    <ion-infinite-scroll ng-if="hasMoreData" on-infinite="loadMore()" distance="30%">
+	    	<ion-infinite-scroll-content loadingSpinner="bubbles" lodingText="Loading more data...">
+	    	</ion-infinite-scroll-content>
+	    </ion-infinite-scroll>
+
+	</ion-content>
+</ion-view>

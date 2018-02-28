@@ -1,0 +1,37 @@
+<ion-modal-view>
+
+  <ion-header-bar class="bar bar-header bar-positive">
+    <h1 class="title">그룹지정</h1>
+      <button class="button button-clear button-primary" ng-click="closeGroupModal()">닫기</button>
+  </ion-header-bar>
+
+  <ion-content class="padding">
+	  <input type="hidden" id="fpid" ng-model="fpid">
+	  <input type="hidden" id="fuser_id" ng-model="fuser_id">
+	  <input type="hidden" id="exp" value="{{fexpert}}"/>
+
+    <div class="scarch">
+      <input id="groupAdd" name="groupAdd" type="search" placeholder="그룹추가"/>
+      <button type="button"><i class="icon ion-plus-round placeholder-icon" ng-click="groupAdd()" style="color:#fff;"></i></button>
+    </div>
+  
+  	<ion-list style="padding: 10px;">
+      <ion-item class="item-remove-animate item-icon-right" ng-repeat="grouplists in grouplist">
+
+        <p><h2>{{grouplists.group_nm}}</h2></p>
+
+        <div style="position: absolute; top:5px; right: 20px;">
+          <button class="button button-calm ion-minus-round" ng-click="groupDel(grouplists.group_sn)"></button>
+        </div>
+      </ion-item>
+  	</ion-list>
+	    
+  </ion-content>
+
+  <ion-footer-bar ng-click="closeGroupModal()">
+    <h2 class="title">
+      <i class="button button-full button-positive">닫기</i>
+    </h2>
+  </ion-footer-bar>
+  
+</ion-modal-view>
