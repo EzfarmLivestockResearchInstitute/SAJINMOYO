@@ -44,9 +44,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 })
 
 .constant('SERVER', {
-    //  url: 'api'
-    //  url: 'http://103.17.108.85:8080/'
-      url: 'http://api.aims.or.kr:8282/'  // korea, ezfarm server - after change  
+      url: 'http://localhost/'  // korea, ezfarm server - after change  
 })
 
 .constant('LIMIT', {

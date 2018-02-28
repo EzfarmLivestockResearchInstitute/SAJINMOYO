@@ -1,10 +1,10 @@
 {
   "name": "Sajinmoyo",
-  "app_id": "com.ionicframework.aimsapp340941",
+  "app_id": "com.ionicframework.sajinmoyo",
   "proxies": [
     {
       "path": "/api",
-      "proxyUrl": "http://api.aims.or.kr:8282/"  
+      "proxyUrl": "http://localhost/"  
     }
   ]
 }
